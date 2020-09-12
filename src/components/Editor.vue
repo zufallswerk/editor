@@ -58,7 +58,7 @@
         </k-draggable>
       </div>
     </div>
-    <div v-else class="k-editor-placeholder">
+    <div class="k-editor-placeholder">
       <nav>
         <k-button
           v-for="blockType in blockTypes"
@@ -679,6 +679,7 @@ export default {
   position: relative;
   background: $color-white;
   box-shadow: $box-shadow;
+  margin-bottom: 1.25rem;
 }
 .k-editor-block {
   position: relative;
