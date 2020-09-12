@@ -24,7 +24,7 @@
         <k-button icon="dots" @click="$refs.settings.toggle()" />
         <k-dropdown-content ref="settings" align="right">
           <k-dropdown-item icon="upload" @click="upload">{{ $t('editor.import') }}</k-dropdown-item>
-          <k-dropdown-item :disabled="isEmpty" icon="attachment" @click="$refs.download.open()">{{ $t('editor.export') }}</k-dropdown-item>
+          <k-dropdown-item :disabled="isEmpty" icon="attachment" @click="onDownload">{{ $t('editor.export') }}</k-dropdown-item>
           <hr>
           <k-dropdown-item :disabled="isEmpty" icon="trash" @click="$refs.removeAll.open()">{{ $t('editor.deleteBlocks') }}</k-dropdown-item>
         </k-dropdown-content>
@@ -114,7 +114,7 @@ export default {
   data() {
     return {
       downloadOptions: {
-        type: "md"
+        type: "json"
       }
     };
   },
@@ -141,7 +141,7 @@ export default {
           let url  = window.URL.createObjectURL(blob);
 
           a.href     = url;
-          a.download = this.name + "." + this.downloadOptions.type;
+          a.download = "editor." + this.downloadOptions.type;
           a.click();
 
           window.URL.revokeObjectURL(url);
