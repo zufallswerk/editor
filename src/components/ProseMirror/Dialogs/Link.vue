@@ -45,7 +45,7 @@ export default {
     open(link) {
       this.link = {
         title: null,
-        target: false,
+        target: true,
         ...link
       };
       this.$refs.dialog.open();
